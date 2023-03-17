@@ -1,0 +1,24 @@
+section {
+  background-color: #f6f6f6;
+  display: grid;
+  grid-template-columns: 20% 1fr; }
+
+ul {
+  list-style: none; }
+
+.reason-header {
+  display: flex; }
+  .reason-header .icon-container {
+    width: 60px;
+    height: 60px; }
+    .reason-header .icon-container img {
+      width: 100%;
+      height: 100%; }
+
+.section-content ul li {
+  position: relative; }
+  .section-content ul li::before {
+    content: "";
+    border-left: 2px solid black;
+    width: 1px;
+    height: 100%; }

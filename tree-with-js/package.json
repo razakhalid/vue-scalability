@@ -1,0 +1,11 @@
+{
+  "name": "tree-with-js",
+  "version": "1.0.0",
+  "description": "basic tree with js, css and jQuery",
+  "main": "index.js",
+  "author": "raza khalid",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^8.0.0"
+  }
+}
