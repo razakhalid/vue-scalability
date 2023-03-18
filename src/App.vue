@@ -1,45 +1,33 @@
 <template>
   <div id="app">
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
 
-        />
-      </div>
 
-      <v-btn exact :to="{ name: 'HomeView' }" text>
-        <span class="mr-2">Home</span>
-      </v-btn>
+    <HeaderComponent class="mt-15" :components="getAppHeaderComponentsSchema"></HeaderComponent>
 
-      <v-btn exact :to="{ name: 'FilmsView' }" text>
-        <span class="mr-2">Films</span>
-      </v-btn>
-
-      <v-btn exact :to="{ name: 'AdminView' }" text>
-        <span class="mr-2">Admin</span>
-      </v-btn>
-
-    </v-app-bar>
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
     <v-main>
       <v-container fluid>
         <router-view :key="$route.fullPath" />
       </v-container>
     </v-main>
+
+    <FooterComponent class="mt-15" :components="getAppFooterComponentSchema"></FooterComponent>
   </div>
 </template>
 
 <script>
 import api from "@/data/api";
+import {mapGetters} from "vuex";
+import HeaderComponent from "@/components/header-component/HeaderComponent.vue";
+import FooterComponent from "@/components/footer-component/FooterComponent.vue";
 
 export default {
   name: "App",
-  async created() {
-    const response = await api.reviews.getOne(1);
-    console.log(response)
+  computed: {
+    ...mapGetters("appSchema", ["getAppHeaderComponentsSchema", "getAppFooterComponentSchema"])
+  },
+  components: {
+    HeaderComponent,
+    FooterComponent
   }
 }
 </script>

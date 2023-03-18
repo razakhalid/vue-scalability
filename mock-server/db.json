@@ -1,34 +1,43 @@
 {
   "app-schema": {
     "header": {
-      "component": "HeaderComponent",
-      "schema": [
+      "name": "headerComponent",
+      "components": [
         {
-          "name": "HomeView",
-          "title": "Home",
-          "onlyAdminCanAccess": false,
-          "visibility": {
-            "desktop": true,
-            "phone": true
-          }
+          "component": "AnnouncementComponent",
+          "schema": "Website recently has been updated!"
         },
         {
-          "name": "FilmsView",
-          "title": "Films",
-          "onlyAdminCanAccess": false,
-          "visibility": {
-            "desktop": true,
-            "phone": true
-          }
-        },
-        {
-          "name": "AdminView",
-          "title": "Admin",
-          "onlyAdminCanAccess": true,
-          "visibility": {
-            "desktop": true,
-            "phone": true
-          }
+          "component": "HeaderButtonsComponent",
+          "schema": [
+            {
+              "name": "HomeView",
+              "title": "Home",
+              "onlyAdminCanAccess": false,
+              "visibility": {
+                "desktop": true,
+                "phone": true
+              }
+            },
+            {
+              "name": "FilmsView",
+              "title": "Films",
+              "onlyAdminCanAccess": false,
+              "visibility": {
+                "desktop": true,
+                "phone": true
+              }
+            },
+            {
+              "name": "AdminView",
+              "title": "Admin",
+              "onlyAdminCanAccess": true,
+              "visibility": {
+                "desktop": true,
+                "phone": true
+              }
+            }
+          ]
         }
       ]
     },
@@ -149,7 +158,14 @@
                 "name": "genre",
                 "type": "select",
                 "value": "",
-                "items": ["thriller","drama","adventure","thriller","science","comedy"],
+                "items": [
+                  "thriller",
+                  "drama",
+                  "adventure",
+                  "thriller",
+                  "science",
+                  "comedy"
+                ],
                 "filterName": "genre"
               }
             ]
@@ -193,36 +209,41 @@
       }
     ],
     "footer": {
-      "component": "FooterComponent",
+      "name": "FooterComponent",
+      "components": [
+        {
+          "component": "FooterDefaultComponent",
+          "schema": {
+            "about us": [
+              {
+                "title": "About Us",
+                "link": "AboutView"
+              },
+              {
+                "title": "Licence",
+                "link": "LicenceView"
+              }
+            ],
+            "useful links": [
+              {
+                "title": "Films",
+                "link": "FilmsView"
+              },
+              {
+                "title": "Reviews",
+                "link": "ReviewsView"
+              },
+              {
+                "title": "Users",
+                "link": "UsersView"
+              }
+            ]
+          }
+        }
+      ],
       "visibility": {
         "desktop": true,
         "phone": true
-      },
-      "schema": {
-        "about us": [
-          {
-            "title": "About Us",
-            "link": "AboutView"
-          },
-          {
-            "title": "Licence",
-            "link": "LicenceView"
-          }
-        ],
-        "useful links": [
-          {
-            "title": "Films",
-            "link": "FilmsView"
-          },
-          {
-            "title": "Reviews",
-            "link": "ReviewsView"
-          },
-          {
-            "title": "Users",
-            "link": "UsersView"
-          }
-        ]
       }
     }
   },

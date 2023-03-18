@@ -1,99 +1,61 @@
 <template>
   <div class="d-flex">
-    <aside class="px-2 white--text">Filters</aside>
-    <v-container class="pa-0">
+    <aside class="px-2 white--text">
 
-      <!--   ControlPanel   -->
+      <!--   Almost Dumb Component   -->
+      <FilterComponent
+          :schema="getFilterComponentSchema"
+      ></FilterComponent>
+
+    </aside>
+
+    <v-container class="pa-0">
       <v-row class="ml-2">
         <v-col cols="9">
-          <v-text-field
-              label="Search Films"
-              prepend-icon="mdi-magnify"
-              clearable
-          ></v-text-field>
-        </v-col>
-        <v-col cols="3" class="align-self-center">
-          <v-pagination v-model="page" :length="4" circle></v-pagination>
+
+          <!--     Almost Dumb Component     -->
+          <SearchComponent
+          ></SearchComponent>
+
+          <v-col cols="3" class="align-self-center">
+            <v-pagination :length="4" circle></v-pagination>
+          </v-col>
+
         </v-col>
       </v-row>
 
-      <v-row class="ml-2">
-        <v-col cols="3">
-          <v-card class="mx-auto" max-width="374">
-            <v-img
-                height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-            ></v-img>
-            <v-card-text class="mt-0">Name</v-card-text>
-            <v-card-text class="mt-0">Year</v-card-text>
-            <v-card-text class="mt-0">Genre</v-card-text>
-          </v-card>
-          <v-card class="mx-auto" max-width="374">
-            <v-img
-                height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-            ></v-img>
-            <v-card-text class="mt-0">Name</v-card-text>
-            <v-card-text class="mt-0">Year</v-card-text>
-            <v-card-text class="mt-0">Genre</v-card-text>
-          </v-card>
-          <v-card class="mx-auto" max-width="374">
-            <v-img
-                height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-            ></v-img>
-            <v-card-text class="mt-0">Name</v-card-text>
-            <v-card-text class="mt-0">Year</v-card-text>
-            <v-card-text class="mt-0">Genre</v-card-text>
-          </v-card>
-          <v-card class="mx-auto" max-width="374">
-            <v-img
-                height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-            ></v-img>
-            <v-card-text class="mt-0">Name</v-card-text>
-            <v-card-text class="mt-0">Year</v-card-text>
-            <v-card-text class="mt-0">Genre</v-card-text>
-          </v-card>
-          <v-card class="mx-auto" max-width="374">
-            <v-img
-                height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-            ></v-img>
-            <v-card-text class="mt-0">Name</v-card-text>
-            <v-card-text class="mt-0">Year</v-card-text>
-            <v-card-text class="mt-0">Genre</v-card-text>
-          </v-card>
-          <v-card class="mx-auto" max-width="374">
-            <v-img
-                height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-            ></v-img>
-            <v-card-text class="mt-0">Name</v-card-text>
-            <v-card-text class="mt-0">Year</v-card-text>
-            <v-card-text class="mt-0">Genre</v-card-text>
-          </v-card>
-          <v-card class="mx-auto" max-width="374">
-            <v-img
-                height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-            ></v-img>
-            <v-card-text class="mt-0">Name</v-card-text>
-            <v-card-text class="mt-0">Year</v-card-text>
-            <v-card-text class="mt-0">Genre</v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
+      <!--   Single Responsible Component   -->
+      <ListViewComponent
+          service="products"
+          template="products"
+      ></ListViewComponent>
+      <ListViewComponent
+          service="users"
+          template="users"
+      ></ListViewComponent>
     </v-container>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import SearchComponent from "@/components/search-component/SearchComponent.vue";
+import FilterComponent from "@/components/filter-component/FilterComponent.vue";
+import ListViewComponent from "@/components/list-view-component/ListViewComponent.vue";
+
 export default {
   name: "FilmsView",
   data: () => ({
     page: 1
-  })
+  }),
+  computed: {
+    ...mapGetters("appSchema", ["getFilterComponentSchema"])
+  },
+  components: {
+    SearchComponent,
+    FilterComponent,
+    ListViewComponent
+  }
 }
 </script>
 

@@ -20,8 +20,16 @@ export default {
     },
     getters: {
         getHomePageComponentsSchema(state) {
-            console.log(state.appSchema)
             return state.appSchema.pages[0].components
+        },
+        getAppHeaderComponentsSchema(state) {
+            return state.appSchema.header.components
+        },
+        getAppFooterComponentSchema(state) {
+            return state.appSchema.footer.components
+        },
+        getFilterComponentSchema(state) {
+            return state.appSchema.pages[1].components.find(item => item.component === "FilterComponent").schema
         }
     }
 }
