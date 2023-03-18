@@ -1,34 +1,37 @@
 <template>
-  <div>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-
-        />
-      </div>
-
-      <v-btn exact :to="{ name: 'HomeView' }" text>
-        <span class="mr-2">Home</span>
-      </v-btn>
-
-      <v-btn exact :to="{ name: 'FilmsView' }" text>
-        <span class="mr-2">Films</span>
-      </v-btn>
-
-      <v-btn exact :to="{ name: 'AdminView' }" text>
-        <span class="mr-2">Admin</span>
-      </v-btn>
-
-    </v-app-bar>
-  </div>
+  <v-container class="buttons-wrapper ma-0 pa-0"
+               vluid
+  >
+    <v-btn v-for="(headerItem, index) in content"
+           exact
+           :to="{ name: headerItem.name }"
+           text
+           :key="`${headerItem.name}_${index}`"
+    >
+      <span class="mr-2">{{ headerItem.title }}</span>
+    </v-btn>
+  </v-container>
 </template>
 
 <script>
 export default {
-  name: "HeaderButtonsComponent"
+  name: "HeaderButtonsComponent",
+  props: {
+    schema: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  data() {
+    return {
+      content: this.schema
+    }
+  }
 }
 </script>
 
 <style scoped>
-
+.buttons-wrapper {
+  background-color: lightblue;
+}
 </style>

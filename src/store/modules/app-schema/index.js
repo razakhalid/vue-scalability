@@ -30,6 +30,9 @@ export default {
         },
         getFilterComponentSchema(state) {
             return state.appSchema.pages[1].components.find(item => item.component === "FilterComponent").schema
+        },
+        getUsersFilterComponentSchema(state) {
+          return state.appSchema.pages[3].components.find(item => item.component === "UserFilterComponent").schema
         }
     }
 }

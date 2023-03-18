@@ -11,6 +11,12 @@
           :data="data"
       ></ProductsTemplate>
 
+      <UsersTemplate
+          v-else-if="template === 'users'"
+          :data="data"
+      >
+      </UsersTemplate>
+
       {{template}}
     </div>
   </div>
@@ -18,6 +24,7 @@
 
 <script>
 import ProductsTemplate from "@/components/list-view-component/components/ProductsTemplate.vue";
+import UsersTemplate from "@/components/list-view-component/components/UsersTemplate.vue";
 import api from "@/data/api";
 
 export default {
@@ -51,7 +58,8 @@ export default {
     this.loading = false;
   },
   components: {
-    ProductsTemplate
+    ProductsTemplate,
+    UsersTemplate
   }
 }
 </script>

@@ -36,6 +36,15 @@
                 "desktop": true,
                 "phone": true
               }
+            },
+            {
+              "name": "UsersView",
+              "title": "Users",
+              "onlyAdminCanAccess": false,
+              "visibility": {
+                "desktop": true,
+                "phone": true
+              }
             }
           ]
         }
@@ -206,6 +215,62 @@
         "visual-attributes": {
           "background": "black"
         }
+      },
+      {
+        "name": "UsersView",
+        "components": [
+          {
+            "id": 1,
+            "component": "SearchComponent",
+            "visibility": {
+              "desktop": true,
+              "phone": false
+            }
+          },
+          {
+            "id": 2,
+            "component": "UserFilterComponent",
+            "visibility": {
+              "desktop": true,
+              "phone": true
+            },
+            "schema": [
+              {
+                "id": "isSuperAdminFilter",
+                "label": "is super-admin",
+                "name": "is-super-admin",
+                "type": "switch",
+                "value": false,
+                "filterName": "isSuperAdmin"
+              },
+              {
+                "id": "roleFilter",
+                "label": "by Role",
+                "name": "role",
+                "type": "select",
+                "value": "",
+                "items": [
+                  "super-admin",
+                  "admin",
+                  "user",
+                  "mediator"
+                ],
+                "filterName": "role"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "component": "ListViewComponent",
+            "visibility": {
+              "desktop": true,
+              "phone": false
+            }
+          }
+        ],
+        "visual-attributes": {
+          "background": "black"
+        }
       }
     ],
     "footer": {
@@ -254,6 +319,7 @@
       "avatar_photo": "https://avatars.githubusercontent.com/u/25683981?v=4",
       "jwt_token": "hosein-mirian-token-123",
       "role": "admin",
+      "isSuperAdmin": true,
       "permissions": [
         "view_filmDetail_page",
         "edit_filmDetail_page",
@@ -266,6 +332,19 @@
       "email": "alex.morgan@gmail.com",
       "jwt_token": "alex-morgan-token-456",
       "role": "user",
+      "isSuperAdmin": false,
+      "permissions": [
+        "view_filmDetail_page",
+        "view_films_page"
+      ]
+    },
+    {
+      "id": 3,
+      "avatar_photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "email": "sada.gira@gmail.com",
+      "jwt_token": "sada-gira-token-456",
+      "role": "mediator",
+      "isSuperAdmin": false,
       "permissions": [
         "view_filmDetail_page",
         "view_films_page"

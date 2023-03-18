@@ -4,7 +4,7 @@
 
       <!--   Almost Dumb Component   -->
       <FilterComponent
-          :schema="getFilterComponentSchema"
+          :schema="getUsersFilterComponentSchema"
       ></FilterComponent>
 
     </aside>
@@ -26,8 +26,8 @@
 
       <!--   Single Responsible Component   -->
       <ListViewComponent
-          service="products"
-          template="products"
+          service="users"
+          template="users"
       ></ListViewComponent>
 
     </v-container>
@@ -41,12 +41,12 @@ import FilterComponent from "@/components/filter-component/FilterComponent.vue";
 import ListViewComponent from "@/components/list-view-component/ListViewComponent.vue";
 
 export default {
-  name: "FilmsView",
+  name: "UsersView",
   data: () => ({
     page: 1
   }),
   computed: {
-    ...mapGetters("appSchema", ["getFilterComponentSchema"])
+    ...mapGetters("appSchema", ["getUsersFilterComponentSchema"])
   },
   components: {
     SearchComponent,

@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import FilmsView from '../views/FilmsView.vue'
 import AdminView from '../views/Admin.vue'
 import FilmView from '../views/FilmView.vue'
+import UsersView from '../views/UsersView.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/admin',
     name: 'AdminView',
     component: AdminView
+  },
+  {
+    path: '/users',
+    name: 'UsersView',
+    component: UsersView
   },
   {
     path: '/film/:id',
